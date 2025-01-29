@@ -1,0 +1,153 @@
+table cards_data
+	lineageTag: 5038d539-e68a-45de-87d1-f0c1e23c2768
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3821560c-18b5-45c7-836a-94065c511e87
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ca531690-e867-42b3-becc-d92f276b4c57
+		summarizeBy: sum
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_brand
+		dataType: string
+		lineageTag: 18fbbce7-4041-4236-8d86-80c9a183a7c6
+		summarizeBy: none
+		sourceColumn: card_brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_type
+		dataType: string
+		lineageTag: cc3394cd-fb3a-4410-ad43-52d8f015dfe5
+		summarizeBy: none
+		sourceColumn: card_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_number
+		dataType: int64
+		formatString: 0
+		lineageTag: c1073194-0c2e-49e0-9f8b-d9056768a357
+		summarizeBy: sum
+		sourceColumn: card_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column expires
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7863abb8-4032-4b70-9609-312fbc0cefed
+		summarizeBy: none
+		sourceColumn: expires
+
+		variation Variation
+			isDefault
+			relationship: da199345-1257-46c9-b6aa-9b645b3a49cd
+			defaultHierarchy: LocalDateTable_ec25c122-0ab9-4c7f-a85b-61f8a5d87a03.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cvv
+		dataType: int64
+		formatString: 0
+		lineageTag: 618851c2-e02f-4665-927f-432ab7e27fd9
+		summarizeBy: sum
+		sourceColumn: cvv
+
+		annotation SummarizationSetBy = Automatic
+
+	column has_chip
+		dataType: string
+		lineageTag: 3358d67b-93d0-467c-b95f-59138cfe03bb
+		summarizeBy: none
+		sourceColumn: has_chip
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_cards_issued
+		dataType: int64
+		formatString: 0
+		lineageTag: 114e0c7b-7612-4c43-9a81-b7c540e0f613
+		summarizeBy: sum
+		sourceColumn: num_cards_issued
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_limit
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6f548a6f-b952-4e52-abc1-d6faf5a506af
+		summarizeBy: sum
+		sourceColumn: credit_limit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column acct_open_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b784876e-b581-4da5-834f-e3694b9fbf37
+		summarizeBy: none
+		sourceColumn: acct_open_date
+
+		variation Variation
+			isDefault
+			relationship: 22431300-a8fe-4d9c-9a64-5666c7133cfe
+			defaultHierarchy: LocalDateTable_50d22d74-2af7-454c-821e-1387c65e8e3f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year_pin_last_changed
+		dataType: int64
+		formatString: 0
+		lineageTag: aff2b06a-1580-4aaa-b3f6-3727f15d9a9d
+		summarizeBy: sum
+		sourceColumn: year_pin_last_changed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column13
+		dataType: string
+		lineageTag: 0dd17916-4298-4abc-a467-e1db9607bc82
+		summarizeBy: none
+		sourceColumn: Column13
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column14
+		dataType: string
+		lineageTag: 92add7bb-7236-4f56-8d56-54cce5ff8120
+		summarizeBy: none
+		sourceColumn: Column14
+
+		annotation SummarizationSetBy = Automatic
+
+	partition cards_data = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\cards_data.xlsx"), null, true),
+				    cards_data_Sheet = Source{[Item="cards_data",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(cards_data_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"client_id", Int64.Type}, {"card_brand", type text}, {"card_type", type text}, {"card_number", Int64.Type}, {"expires", type date}, {"cvv", Int64.Type}, {"has_chip", type text}, {"num_cards_issued", Int64.Type}, {"credit_limit", Currency.Type}, {"acct_open_date", type date}, {"year_pin_last_changed", Int64.Type}, {"Column13", type any}, {"Column14", type any}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

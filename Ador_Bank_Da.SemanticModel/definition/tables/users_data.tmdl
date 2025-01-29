@@ -1,0 +1,148 @@
+table users_data
+	lineageTag: 32265793-d0e5-4e0d-a400-4ccaf2ab9ba7
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 07b3ef45-55b3-4b4e-b381-cf77efe61cdf
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_age
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d2dbcb2-716f-4336-9a9d-16499f7d7c59
+		summarizeBy: sum
+		sourceColumn: current_age
+
+		annotation SummarizationSetBy = Automatic
+
+	column retirement_age
+		dataType: int64
+		formatString: 0
+		lineageTag: bccc6c58-12cf-4d55-a24a-abc9aa328c70
+		summarizeBy: sum
+		sourceColumn: retirement_age
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f9854dd-2a24-4a98-a392-d819d446717d
+		summarizeBy: sum
+		sourceColumn: birth_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_month
+		dataType: int64
+		formatString: 0
+		lineageTag: c88e358f-9e29-4acf-b1fb-80c78738ad1b
+		summarizeBy: sum
+		sourceColumn: birth_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: e6587c09-b3d0-437b-bfa3-d4a4e9108ee3
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column address
+		dataType: string
+		lineageTag: ecca581d-9dc9-4b81-9148-01e5faf76186
+		summarizeBy: none
+		sourceColumn: address
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: string
+		lineageTag: 1a5e2407-0931-4ea6-83b1-2d3061b72f4c
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column longitude
+		dataType: double
+		lineageTag: aa02911c-fa93-40c0-9877-d99708a9000d
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column per_capita_income
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8ff54167-60f3-40a1-b305-5af716c7936f
+		summarizeBy: sum
+		sourceColumn: per_capita_income
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column yearly_income
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 25e27646-da86-4bbc-a9cd-892a0adaea5e
+		summarizeBy: sum
+		sourceColumn: yearly_income
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column total_debt
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0e711e73-bff2-4cbe-8512-e9a362bff4fa
+		summarizeBy: sum
+		sourceColumn: total_debt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column credit_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 11d6ba37-cc59-4cd0-a59d-84dc6426b85d
+		summarizeBy: sum
+		sourceColumn: credit_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_credit_cards
+		dataType: int64
+		formatString: 0
+		lineageTag: 86c1afbd-fa66-4b1c-b0f7-e72a3fa9e399
+		summarizeBy: sum
+		sourceColumn: num_credit_cards
+
+		annotation SummarizationSetBy = Automatic
+
+	partition users_data = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\users_data.xlsx"), null, true),
+				    users_data_Sheet = Source{[Item="users_data",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(users_data_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"current_age", Int64.Type}, {"retirement_age", Int64.Type}, {"birth_year", Int64.Type}, {"birth_month", Int64.Type}, {"gender", type text}, {"address", type text}, {"latitude", type any}, {"longitude", type number}, {"per_capita_income", Currency.Type}, {"yearly_income", Currency.Type}, {"total_debt", Currency.Type}, {"credit_score", Int64.Type}, {"num_credit_cards", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

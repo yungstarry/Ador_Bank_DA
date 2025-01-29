@@ -1,0 +1,58 @@
+table mcc_codes
+	lineageTag: b26a6ee2-9ba4-4aa9-9a1c-40c0cf2b1a95
+
+	column mcc_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 10378969-71d2-4e0b-b8df-641d541d2d5c
+		summarizeBy: none
+		sourceColumn: mcc_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 6d8956bf-993c-487d-bbc9-7628e20a8490
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 339fe1cd-de4b-4018-acbf-d9f1b49b382a
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mcc_codes = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\mcc_codes.xlsx"), null, true),
+				    mcc_codes_Sheet = Source{[Item="mcc_codes",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(mcc_codes_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"mcc_id", Int64.Type}, {"Description", type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "Category", each if Text.Contains([Description], "Eating Places") or Text.Contains([Description], "Restaurants") or Text.Contains([Description], "Fast Food") then "Food"
+				        else if Text.Contains([Description], "Service Stations") or Text.Contains([Description], "Gas") or Text.Contains([Description], "Tolls") or Text.Contains([Description], "Car Washes") or Text.Contains([Description], "Automotive") or Text.Contains([Description], "Truck") then "Automotive"
+				        else if Text.Contains([Description], "Amusement") or Text.Contains([Description], "Carnivals") or Text.Contains([Description], "Theaters") or Text.Contains([Description], "Sports") or Text.Contains([Description], "Recreational") or Text.Contains([Description], "Clubs") then "Entertainment"
+				        else if Text.Contains([Description], "Supermarkets") or Text.Contains([Description], "Grocery") or Text.Contains([Description], "Food Stores") or Text.Contains([Description], "Wholesale") or Text.Contains([Description], "Discount Stores") or Text.Contains([Description], "Department Stores") then "Retail"
+				        else if Text.Contains([Description], "Utilities") or Text.Contains([Description], "Electric") or Text.Contains([Description], "Gas") or Text.Contains([Description], "Water") or Text.Contains([Description], "Sanitary") or Text.Contains([Description], "Telecommunication") or Text.Contains([Description], "Cable") or Text.Contains([Description], "Satellite") then "Utilities"
+				        else if Text.Contains([Description], "Doctors") or Text.Contains([Description], "Physicians") or Text.Contains([Description], "Hospitals") or Text.Contains([Description], "Dentists") or Text.Contains([Description], "Pharmacies") or Text.Contains([Description], "Chiropractors") or Text.Contains([Description], "Medical") or Text.Contains([Description], "Podiatrists") then "Healthcare"
+				        else if Text.Contains([Description], "Book Stores") or Text.Contains([Description], "Books") or Text.Contains([Description], "Periodicals") or Text.Contains([Description], "Music") or Text.Contains([Description], "Digital Goods") then "Media"
+				        else if Text.Contains([Description], "Cleaning") or Text.Contains([Description], "Maintenance") or Text.Contains([Description], "Laundry") or Text.Contains([Description], "Tax Preparation") or Text.Contains([Description], "Legal Services") or Text.Contains([Description], "Accounting") or Text.Contains([Description], "Auditing") or Text.Contains([Description], "Insurance") or Text.Contains([Description], "Travel Agencies") or Text.Contains([Description], "Security Services") or Text.Contains([Description], "Detective") then "Services"
+				        else if Text.Contains([Description], "Florists") or Text.Contains([Description], "Gardening") or Text.Contains([Description], "Nursery Stock") or Text.Contains([Description], "Flowers") then "Floristry"
+				        else if Text.Contains([Description], "Building Materials") or Text.Contains([Description], "Lumber") or Text.Contains([Description], "Hardware Stores") or Text.Contains([Description], "Lighting") or Text.Contains([Description], "Fixtures") or Text.Contains([Description], "Floor Covering") or Text.Contains([Description], "Home Furnishing") or Text.Contains([Description], "Drapery") then "Home"
+				        else if Text.Contains([Description], "Steel") or Text.Contains([Description], "Metal") or Text.Contains([Description], "Machinery") or Text.Contains([Description], "Fabricated Products") or Text.Contains([Description], "Welding") or Text.Contains([Description], "Ironwork") or Text.Contains([Description], "Semiconductors") then "Manufacturing"
+				        else if Text.Contains([Description], "Airlines") or Text.Contains([Description], "Passenger Railways") or Text.Contains([Description], "Bus Lines") or Text.Contains([Description], "Railroad") or Text.Contains([Description], "Motor Freight") or Text.Contains([Description], "Ship Chandlers") or Text.Contains([Description], "Postal Services") or Text.Contains([Description], "Cruise Lines") or Text.Contains([Description], "Towing Services") then "Transport"
+				        else if Text.Contains([Description], "Beauty") or Text.Contains([Description], "Barber") or Text.Contains([Description], "Cosmetic") or Text.Contains([Description], "Women's Ready-To-Wear") or Text.Contains([Description], "Clothing") or Text.Contains([Description], "Shoe Stores") or Text.Contains([Description], "Sports Apparel") or Text.Contains([Description], "Leather Goods") then "Apparel"
+				        else "Miscellaneous"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Category", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

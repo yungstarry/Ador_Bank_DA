@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 568,
+            "y": 5
+          },
+          "nodeIndex": "cards_data",
+          "nodeLineageTag": "5038d539-e68a-45de-87d1-f0c1e23c2768",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 91
+          },
+          "nodeIndex": "dictionary",
+          "nodeLineageTag": "12238c96-5019-4359-96b8-c57da3da8a8f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 91
+          },
+          "nodeIndex": "dictionary (2)",
+          "nodeLineageTag": "8f350ffd-e888-460c-b56c-46cb8725d093",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 91
+          },
+          "nodeIndex": "dictionary (3)",
+          "nodeLineageTag": "33d0222c-cda6-4682-a448-ec681c06025a",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 91
+          },
+          "nodeIndex": "dictionary (4)",
+          "nodeLineageTag": "1ca08fb7-5fc4-41b5-8176-216e20cdb614",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 294,
+            "y": 81
+          },
+          "nodeIndex": "mcc_codes",
+          "nodeLineageTag": "b26a6ee2-9ba4-4aa9-9a1c-40c0cf2b1a95",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": -5
+          },
+          "nodeIndex": "transactions_data",
+          "nodeLineageTag": "36aba7c3-4b25-4a33-9c02-be4b3a375d78",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1988,
+            "y": 5
+          },
+          "nodeIndex": "users_data",
+          "nodeLineageTag": "32265793-d0e5-4e0d-a400-4ccaf2ab9ba7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

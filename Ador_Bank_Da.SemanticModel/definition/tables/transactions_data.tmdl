@@ -1,0 +1,144 @@
+table transactions_data
+	lineageTag: 36aba7c3-4b25-4a33-9c02-be4b3a375d78
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 15a35b58-9f17-4b6b-9842-1cd2017da5c0
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 198d2a7e-9fbd-4eff-9142-f37fe95da391
+		summarizeBy: sum
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 162aae71-f0a6-43ca-8cf8-b8f1386c4f63
+		summarizeBy: sum
+		sourceColumn: card_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: 80da8ebd-6254-42b4-b680-e7f77a1053d5
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column use_chip
+		dataType: string
+		lineageTag: ce4560cc-bfd8-4077-b3c8-3e3e9771a363
+		summarizeBy: none
+		sourceColumn: use_chip
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7967415f-0b98-4681-a544-4d4d543b293c
+		summarizeBy: sum
+		sourceColumn: merchant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_city
+		dataType: string
+		lineageTag: 88a918e1-60eb-4db9-b43a-72eff64672d1
+		summarizeBy: none
+		sourceColumn: merchant_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_state
+		dataType: string
+		lineageTag: b0b6b976-6a10-4952-a43e-ffd60dbfb0d1
+		summarizeBy: none
+		sourceColumn: merchant_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column zip
+		dataType: int64
+		formatString: 0
+		lineageTag: a6e90968-168a-4e92-83e8-c5800a0657a4
+		summarizeBy: sum
+		sourceColumn: zip
+
+		annotation SummarizationSetBy = Automatic
+
+	column mcc
+		dataType: int64
+		formatString: 0
+		lineageTag: a72f0e71-266d-4160-865b-c05f5cd10d88
+		summarizeBy: none
+		sourceColumn: mcc
+
+		annotation SummarizationSetBy = Automatic
+
+	column errors
+		dataType: string
+		lineageTag: 9e11bf41-c0ce-4110-abfa-3f431156ef56
+		summarizeBy: none
+		sourceColumn: errors
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3c553135-8c90-4ca1-b08b-212aa30d4782
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: f1dd0315-9ac2-42f7-a643-f8c92aa68105
+			defaultHierarchy: LocalDateTable_eb001815-0ee4-48cd-822f-47f97d7ed613.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column time
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 7943e449-51cb-49c9-ae2b-34d992dda33b
+		summarizeBy: none
+		sourceColumn: time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition transactions_data = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\transactions_data.xlsx"), null, true),
+				    transactions_data_Sheet = Source{[Item="transactions_data",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(transactions_data_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"date", type datetime}, {"client_id", Int64.Type}, {"card_id", Int64.Type}, {"amount", type number}, {"use_chip", type text}, {"merchant_id", Int64.Type}, {"merchant_city", type text}, {"merchant_state", type text}, {"zip", Int64.Type}, {"mcc", Int64.Type}, {"errors", type text}}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(Table.TransformColumnTypes(#"Changed Type", {{"date", type text}}, "en-US"), "date", Splitter.SplitTextByEachDelimiter({" "}, QuoteStyle.Csv, false), {"date.1", "date.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"date.1", type date}, {"date.2", type time}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"date.1", "date"}, {"date.2", "time"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

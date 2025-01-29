@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Ador_Bank_Da"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4ff00c34-b70b-4192-82f2-c777b1aef047"
+  }
+}

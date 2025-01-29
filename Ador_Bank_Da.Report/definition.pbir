@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Ador_Bank_Da.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

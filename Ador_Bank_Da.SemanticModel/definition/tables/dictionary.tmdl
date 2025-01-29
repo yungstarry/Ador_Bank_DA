@@ -1,0 +1,34 @@
+table dictionary
+	lineageTag: 12238c96-5019-4359-96b8-c57da3da8a8f
+
+	column Column1
+		dataType: string
+		lineageTag: 988f0b72-1936-495d-a6d4-dc841dfa7841
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column2
+		dataType: string
+		lineageTag: 4869ecb4-b067-401b-a800-5deb0cfa2339
+		summarizeBy: none
+		sourceColumn: Column2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dictionary = m
+		mode: import
+		queryGroup: Dictionary
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\users_data.xlsx"), null, true),
+				    dictionary_Sheet = Source{[Item="dictionary",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dictionary_Sheet,{{"Column1", type text}, {"Column2", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

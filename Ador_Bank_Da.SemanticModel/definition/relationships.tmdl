@@ -1,0 +1,19 @@
+relationship da199345-1257-46c9-b6aa-9b645b3a49cd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: cards_data.expires
+	toColumn: LocalDateTable_ec25c122-0ab9-4c7f-a85b-61f8a5d87a03.Date
+
+relationship 22431300-a8fe-4d9c-9a64-5666c7133cfe
+	joinOnDateBehavior: datePartOnly
+	fromColumn: cards_data.acct_open_date
+	toColumn: LocalDateTable_50d22d74-2af7-454c-821e-1387c65e8e3f.Date
+
+relationship AutoDetected_5f4456b8-77de-42c7-bc3e-28fbb95ef3a7
+	fromColumn: transactions_data.mcc
+	toColumn: mcc_codes.mcc_id
+
+relationship f1dd0315-9ac2-42f7-a643-f8c92aa68105
+	joinOnDateBehavior: datePartOnly
+	fromColumn: transactions_data.date
+	toColumn: LocalDateTable_eb001815-0ee4-48cd-822f-47f97d7ed613.Date
+
