@@ -1,0 +1,56 @@
+expression dictionary =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\users_data.xlsx"), null, true),
+		    dictionary_Sheet = Source{[Item="dictionary",Kind="Sheet"]}[Data],
+		    #"Changed Type" = Table.TransformColumnTypes(dictionary_Sheet,{{"Column1", type text}, {"Column2", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: 69a55264-8951-46e5-a5ff-49b02c029318
+	queryGroup: Dictionary
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'dictionary (2)' =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\transactions_data.xlsx"), null, true),
+		    dictionary_Sheet = Source{[Item="dictionary",Kind="Sheet"]}[Data],
+		    #"Changed Type" = Table.TransformColumnTypes(dictionary_Sheet,{{"Column1", type text}, {"Column2", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: 955b00af-fb3c-470e-b594-91316514c020
+	queryGroup: Dictionary
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'dictionary (3)' =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\cards_data.xlsx"), null, true),
+		    dictionary_Sheet = Source{[Item="dictionary",Kind="Sheet"]}[Data],
+		    #"Changed Type" = Table.TransformColumnTypes(dictionary_Sheet,{{"Column1", type text}, {"Column2", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: 2a37bd17-9a15-408a-9420-74096151cfda
+	queryGroup: Dictionary
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'dictionary (4)' =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\HP\OneDrive\Desktop\Ador_Bank_DA\Aurora Bank\mcc_codes.xlsx"), null, true),
+		    dictionary_Sheet = Source{[Item="dictionary",Kind="Sheet"]}[Data],
+		    #"Changed Type" = Table.TransformColumnTypes(dictionary_Sheet,{{"Column1", type text}, {"Column2", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: be00ee95-c74d-4fab-8da0-01f7b9f74c76
+	queryGroup: Dictionary
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

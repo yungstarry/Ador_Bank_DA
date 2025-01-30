@@ -9,11 +9,18 @@ relationship 22431300-a8fe-4d9c-9a64-5666c7133cfe
 	toColumn: LocalDateTable_50d22d74-2af7-454c-821e-1387c65e8e3f.Date
 
 relationship AutoDetected_5f4456b8-77de-42c7-bc3e-28fbb95ef3a7
-	fromColumn: transactions_data.mcc
+	fromColumn: fact_transactions_data.mcc
 	toColumn: mcc_codes.mcc_id
 
-relationship f1dd0315-9ac2-42f7-a643-f8c92aa68105
-	joinOnDateBehavior: datePartOnly
-	fromColumn: transactions_data.date
-	toColumn: LocalDateTable_eb001815-0ee4-48cd-822f-47f97d7ed613.Date
+relationship 36dda92f-5802-65af-b7ec-a347580ad4c2
+	fromColumn: fact_transactions_data.card_id
+	toColumn: cards_data.id
+
+relationship 576c2e2d-5b25-e1cf-bdf9-977d329ba8eb
+	fromColumn: fact_transactions_data.client_id
+	toColumn: users_data.id
+
+relationship e0b23e54-fb34-1d91-4ad9-042a6d4604e4
+	fromColumn: fact_transactions_data.date
+	toColumn: Calendar.Date
 

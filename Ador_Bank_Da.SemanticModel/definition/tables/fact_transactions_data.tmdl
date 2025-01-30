@@ -1,4 +1,4 @@
-table transactions_data
+table fact_transactions_data
 	lineageTag: 36aba7c3-4b25-4a33-9c02-be4b3a375d78
 
 	column id
@@ -14,7 +14,7 @@ table transactions_data
 		dataType: int64
 		formatString: 0
 		lineageTag: 198d2a7e-9fbd-4eff-9142-f37fe95da391
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: client_id
 
 		annotation SummarizationSetBy = Automatic
@@ -23,7 +23,7 @@ table transactions_data
 		dataType: int64
 		formatString: 0
 		lineageTag: 162aae71-f0a6-43ca-8cf8-b8f1386c4f63
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: card_id
 
 		annotation SummarizationSetBy = Automatic
@@ -104,11 +104,6 @@ table transactions_data
 		summarizeBy: none
 		sourceColumn: date
 
-		variation Variation
-			isDefault
-			relationship: f1dd0315-9ac2-42f7-a643-f8c92aa68105
-			defaultHierarchy: LocalDateTable_eb001815-0ee4-48cd-822f-47f97d7ed613.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -124,7 +119,7 @@ table transactions_data
 
 		annotation UnderlyingDateTimeDataType = Time
 
-	partition transactions_data = m
+	partition fact_transactions_data = m
 		mode: import
 		source =
 				let

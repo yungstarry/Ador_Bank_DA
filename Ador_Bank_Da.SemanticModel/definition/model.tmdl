@@ -10,7 +10,7 @@ queryGroup Dictionary
 
 	annotation PBI_QueryGroupOrder = 0
 
-annotation PBI_QueryOrder = ["dictionary","dictionary (2)","dictionary (3)","dictionary (4)","users_data","transactions_data","cards_data","mcc_codes"]
+annotation PBI_QueryOrder = ["dictionary","dictionary (2)","dictionary (3)","dictionary (4)","users_data","fact_transactions_data","cards_data","mcc_codes","_Measures"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -18,18 +18,15 @@ annotation PBIDesktopVersion = 2.139.1678.0 (24.12)+2a034ab280bddf891eb7bb9ebfe6
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table dictionary
-ref table 'dictionary (2)'
-ref table 'dictionary (3)'
-ref table 'dictionary (4)'
 ref table users_data
-ref table transactions_data
+ref table fact_transactions_data
 ref table DateTableTemplate_3697a684-36b8-47d5-9707-baaf00e36f11
 ref table cards_data
 ref table LocalDateTable_ec25c122-0ab9-4c7f-a85b-61f8a5d87a03
 ref table LocalDateTable_50d22d74-2af7-454c-821e-1387c65e8e3f
 ref table mcc_codes
-ref table LocalDateTable_eb001815-0ee4-48cd-822f-47f97d7ed613
+ref table Calendar
+ref table _Measures
 
 ref cultureInfo en-US
 
