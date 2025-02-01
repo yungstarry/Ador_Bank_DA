@@ -233,6 +233,107 @@ table users_data
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Credit score category' =
+			
+			SWITCH(
+			    TRUE(),
+			    users_data[credit_score] >= 750 , "Excellent",
+			    users_data[credit_score] >= 700 , "Good",
+			    users_data[credit_score] >= 650 , "Fair",
+			    users_data[credit_score] < 650 , "Poor",
+			    "Unknown"
+			)
+		lineageTag: 18bb968f-d188-429f-be37-9e457bc490c6
+		summarizeBy: none
+		sortByColumn: 'Credit score category_sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit score category_sort' =
+			
+			SWITCH(
+			    TRUE(),
+			    users_data[credit_score] >= 750 , "1",
+			    users_data[credit_score] >= 700 , "2",
+			    users_data[credit_score] >= 650 , "3",
+			    users_data[credit_score] < 600 , "4",
+			    "5"
+			)
+		lineageTag: b5e4b499-f682-4d66-8140-52d72655fa62
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DTI = ```
+			DIVIDE(users_data[total_debt],users_data[yearly_income]) * 100 
+			```
+		lineageTag: 693e4d19-1693-40be-8488-6397b8030e42
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DTI Category' =
+			SWITCH(
+			    TRUE(),
+			    users_data[DTI] < 30, "Low Risk",
+			    users_data[DTI] >= 30 && users_data[DTI] < 50, "Menageable",
+			    users_data[DTI] >= 50 && users_data[DTI] < 150, "Risky Border",
+			    users_data[DTI] >= 150 && users_data[DTI] < 190, "High Risk",
+			    "Severe Risk"
+			)
+		lineageTag: 983dd9cb-ad17-479a-b1ac-e27a88fce3b2
+		summarizeBy: none
+		sortByColumn: 'DTI Category_sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DTI Category_sort' =
+			SWITCH(
+			    TRUE(),
+			    users_data[DTI] < 30, "1",
+			    users_data[DTI] >= 30 && users_data[DTI] < 50, "2",
+			    users_data[DTI] >= 50 && users_data[DTI] < 150, "3",
+			    users_data[DTI] >= 150 && users_data[DTI] < 190, "4",
+			    "5"
+			)
+		lineageTag: 8c8b2aea-4774-4bd6-aa33-bc48d1f6d781
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Risk Score' = ```
+			
+			var Maxscore = MAXX(ALL(users_data), users_data[credit_score])
+			VAR MaxYr = MAXX(ALL(users_data),users_data[Actice Years])
+			var MaxYrIncome = MAXX(ALL(users_data),users_data[yearly_income])
+			VAR MaxDebt = MAXX(ALL(users_data),users_data[total_debt])
+			VAR MaxCard = MAXX(ALL(users_data), users_data[num_credit_cards])
+			
+			RETURN 
+			(
+			    DIVIDE(users_data[credit_score],Maxscore) * 20 +
+			    DIVIDE(users_data[yearly_income],MaxYrIncome) * 25 +
+			    (1-DIVIDE(users_data[total_debt], MaxDebt)) *25 +
+			    (1-DIVIDE(users_data[num_credit_cards],MaxCard)) * 10 +
+			    (DIVIDE(users_data[Actice Years], MaxYr)) * 20
+			
+			)
+			
+			
+			```
+		lineageTag: 087334f0-0af4-4157-bafc-ac654b14ea7b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition users_data = m
 		mode: import
 		source =

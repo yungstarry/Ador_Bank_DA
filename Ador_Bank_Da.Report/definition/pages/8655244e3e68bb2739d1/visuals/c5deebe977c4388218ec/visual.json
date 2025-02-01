@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "c5deebe977c4388218ec",
   "position": {
-    "x": 86.449689274527216,
+    "x": 80.274711469203837,
     "y": 209.94924538099465,
     "z": 2,
     "height": 656.60597329938525,
-    "width": 679.24755858557091,
+    "width": 1037.3962712943264,
     "tabOrder": 2
   },
   "visual": {
@@ -75,6 +75,90 @@
               },
               "queryRef": "users_data.Active_years_bucket",
               "nativeQueryRef": "Active_years_bucket"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "Credit score category"
+                }
+              },
+              "queryRef": "users_data.Credit score category",
+              "nativeQueryRef": "Credit score category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "Credit score category_sort"
+                }
+              },
+              "queryRef": "users_data.Credit score category_sort",
+              "nativeQueryRef": "Credit score category_sort"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "credit_score"
+                }
+              },
+              "queryRef": "users_data.credit_score",
+              "nativeQueryRef": "credit_score"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "Risk Score"
+                }
+              },
+              "queryRef": "users_data.Risk Score",
+              "nativeQueryRef": "Risk Score"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "total_debt"
+                }
+              },
+              "queryRef": "users_data.total_debt",
+              "nativeQueryRef": "total_debt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "yearly_income"
+                }
+              },
+              "queryRef": "users_data.yearly_income",
+              "nativeQueryRef": "yearly_income"
             }
           ]
         }
@@ -89,10 +173,10 @@
                     "Entity": "users_data"
                   }
                 },
-                "Property": "Active_years_bucket"
+                "Property": "Risk Score"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
