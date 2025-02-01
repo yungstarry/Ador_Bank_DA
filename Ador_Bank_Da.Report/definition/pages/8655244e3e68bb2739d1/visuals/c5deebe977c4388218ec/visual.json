@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "c5deebe977c4388218ec",
+  "position": {
+    "x": 86.449689274527216,
+    "y": 209.94924538099465,
+    "z": 2,
+    "height": 656.60597329938525,
+    "width": 679.24755858557091,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "users_data"
+                        }
+                      },
+                      "Property": "age_bucket"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(users_data.age_bucket)",
+              "nativeQueryRef": "First age_bucket"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "current_age"
+                }
+              },
+              "queryRef": "users_data.current_age",
+              "nativeQueryRef": "current_age"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "Actice Years"
+                }
+              },
+              "queryRef": "users_data.Actice Years",
+              "nativeQueryRef": "Actice Years"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "users_data"
+                    }
+                  },
+                  "Property": "Active_years_bucket"
+                }
+              },
+              "queryRef": "users_data.Active_years_bucket",
+              "nativeQueryRef": "Active_years_bucket"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "users_data"
+                  }
+                },
+                "Property": "Active_years_bucket"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

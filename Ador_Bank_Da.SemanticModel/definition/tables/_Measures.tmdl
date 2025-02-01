@@ -1,22 +1,78 @@
 table _Measures
 	lineageTag: f7765116-f874-463a-ae72-37efc9d4966c
 
-	column Column1
-		dataType: string
-		lineageTag: 24a1bc7a-231e-462e-9a1d-1f16310c0793
-		summarizeBy: none
-		sourceColumn: Column1
+	measure 'Total Clients' = count(users_data[id])
+		formatString: 0
+		lineageTag: d4ee9cfe-e69e-487b-9609-a568958cd8d1
 
-		annotation SummarizationSetBy = Automatic
+	measure 'Female Clients' = CALCULATE([Total Clients], users_data[gender] ="Female")
+		formatString: 0
+		lineageTag: e2e009b1-f542-4492-b32d-8062f5414bb7
+
+	measure 'Male Clients' = CALCULATE([Total Clients], users_data[gender]="Male")
+		formatString: 0
+		lineageTag: 2d1ae9c1-7804-4b17-be07-e868cb7e8b88
+
+	measure 'Avg Age' = AVERAGE(users_data[current_age])
+		lineageTag: 7cf0462c-377e-4d72-8bd3-856e9abe4a28
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Female Avg_age' = CALCULATE([Avg Age], 'users_data'[gender]="Female")
+		lineageTag: 54e3b34e-4a30-4902-a85f-463f08cf23fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Male Avg_age' = CALCULATE([Avg Age], 'users_data'[gender]="Male")
+		lineageTag: 002e379c-7d8b-4b9f-9dfe-1caac07a5bd7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Yearly_income' = AVERAGE(users_data[yearly_income])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bf9b5e4e-70c2-4688-84dd-d856d2009aaf
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Max Yearly_income' = MAX(users_data[yearly_income])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3afae095-8ec1-4e51-933a-5c7462f22d30
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Min Yearly_income' = MIN(users_data[yearly_income])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3dd7cae5-f455-45e4-b6e5-a75f1e08ffb6
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Per_cap_income' = AVERAGE(users_data[per_capita_income])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 73ff96b2-fcb4-4ba8-ac2b-195374fe2d42
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Max Per_cap_income' = MAX(users_data[per_capita_income])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 77a8a0aa-58d9-4ce1-82cb-aa46a2cc8af1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Min Per_cap_income' = MIN(users_data[per_capita_income])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2643b3cd-73f7-4b3a-90a5-893be30ce99f
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	partition _Measures = m
 		mode: import
 		source =
 				let
 				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
-				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
 				in
-				    #"Changed Type"
+				    #"Removed Columns"
 
 	annotation PBI_ResultType = Table
 

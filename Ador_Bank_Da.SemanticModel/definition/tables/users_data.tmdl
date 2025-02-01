@@ -131,6 +131,108 @@ table users_data
 
 		annotation SummarizationSetBy = Automatic
 
+	column age_bucket =
+			SWITCH(
+			    TRUE(),
+			    users_data[current_age] >= 18 && users_data[current_age] <= 20, "18-20",
+			    users_data[current_age] >= 21 && users_data[current_age] <= 30, "21-30",
+			    users_data[current_age] >= 31 && users_data[current_age] <= 40, "31-40",
+			    users_data[current_age] >= 41 && users_data[current_age] <= 50, "41-50",
+			    users_data[current_age] >= 51 && users_data[current_age] <= 60, "51-60",
+			    users_data[current_age] >= 61 && users_data[current_age] <= 70, "61-70",
+			    ">71"
+			)
+		lineageTag: cd41e1dc-d8dd-4857-8e8d-03dc340621f3
+		summarizeBy: none
+		sortByColumn: age_bucket_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_bucket_sort =
+			SWITCH(
+			    TRUE(),
+			    users_data[current_age] >= 18 && users_data[current_age] <= 20, "1",
+			    users_data[current_age] >= 21 && users_data[current_age] <= 30, "2",
+			    users_data[current_age] >= 31 && users_data[current_age] <= 40, "3",
+			    users_data[current_age] >= 41 && users_data[current_age] <= 50, "4",
+			    users_data[current_age] >= 51 && users_data[current_age] <= 60, "5",
+			    users_data[current_age] >= 61 && users_data[current_age] <= 70, "6",
+			    "7"
+			)
+		lineageTag: 8ebe2aee-2f04-4e19-97c5-aab0e89bac03
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actice Years' = users_data[retirement_age] - users_data[current_age]
+		formatString: 0
+		lineageTag: 9c8873ca-7e27-4b01-8f40-c9f996a2497c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Active_years_bucket =
+			SWITCH(
+			    TRUE(),
+			    users_data[Actice Years] >= 0 && users_data[Actice Years] <= 15, "0-15 Years",
+			    users_data[Actice Years] >= 16 && users_data[Actice Years] <= 30, "16-30 Years",
+			    users_data[Actice Years] >= 31 && users_data[Actice Years] <= 45, "31-45 Years",
+			    users_data[Actice Years] >= 46 && users_data[Actice Years] <= 57, "46-57 Years",
+			    "Retired"
+			)
+		lineageTag: d8cdc297-9830-4c28-95b3-4bd21f3bfe75
+		summarizeBy: none
+		sortByColumn: Active_years_bucket_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Active_years_bucket_sort =
+			SWITCH(
+			    TRUE(),
+			    users_data[Actice Years] >= 0 && users_data[Actice Years] <= 15, "1",
+			    users_data[Actice Years] >= 16 && users_data[Actice Years] <= 30, "2",
+			    users_data[Actice Years] >= 31 && users_data[Actice Years] <= 45, "3",
+			    users_data[Actice Years] >= 46 && users_data[Actice Years] <= 57, "4",
+			    "5"
+			)
+		lineageTag: ba7dc68b-bdbf-4caf-8d77-f3e2aca9cadd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column income_bucket =
+			SWITCH(
+			    TRUE(),
+			    users_data[yearly_income] >= 1 && users_data[yearly_income] <= 50000, "Low Income",
+			    users_data[yearly_income] > 50001 && users_data[yearly_income] <= 100000, "Middle Income",
+			    users_data[yearly_income] > 100001, "High Income",
+			    "Unknown"
+			)
+		lineageTag: 193e567e-93db-4f6c-bb40-e8e7981a2f86
+		summarizeBy: none
+		sortByColumn: income_bucket_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column income_bucket_sort =
+			SWITCH(
+			    TRUE(),
+			    users_data[yearly_income] >= 1 && users_data[yearly_income] <= 50000, "1",
+			    users_data[yearly_income] > 50001 && users_data[yearly_income] <= 100000, "2",
+			    users_data[yearly_income] > 100001, "3",
+			    "4"
+			)
+		lineageTag: 28372f5e-b469-48a9-97e3-75c29b9bc19e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition users_data = m
 		mode: import
 		source =
