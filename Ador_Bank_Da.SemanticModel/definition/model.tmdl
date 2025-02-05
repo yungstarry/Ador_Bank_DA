@@ -14,7 +14,7 @@ annotation PBI_QueryOrder = ["dictionary","dictionary (2)","dictionary (3)","dic
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.139.1678.0 (24.12)+2a034ab280bddf891eb7bb9ebfe6996f9c3a3196
+annotation PBIDesktopVersion = 2.139.2054.0 (24.12)+334ca1c95b576cc53924655643b0d36f21caac55
 
 annotation PBI_ProTooling = ["DevMode"]
 
