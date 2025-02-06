@@ -334,6 +334,75 @@ table users_data
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column 'Loan Risk Category' = ```
+			
+			VAR RiskScore = [Risk Score] 
+			
+			RETURN 
+			    SWITCH(
+			        TRUE(),
+			        RiskScore >= 60, "Low Risk",
+			        RiskScore >= 40, "Moderate Risk",
+			        "High Risk"
+			    )
+			
+			```
+		lineageTag: 80ae683a-6678-4a58-a143-3e003b0619f3
+		summarizeBy: none
+		sortByColumn: 'Loan Risk Category Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loan Risk Category Sort' =
+			
+			VAR RiskScore = [Risk Score] -- Use the calculated Risk Score
+			RETURN
+			SWITCH(
+			TRUE(),
+			RiskScore >= 60, "1",
+			RiskScore >= 40, "2",
+			"3"
+			)
+		lineageTag: 7c9f45fd-c3ba-4b94-9a7e-a18e335d1a36
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_debt_bucket =
+			SWITCH(
+			    TRUE(),
+			    users_data[total_debt] = 0, "No Debt" ,
+			    users_data[total_debt] > 0 && users_data[total_debt] <= 10000, "Low Debt",
+			    users_data[total_debt] > 10000 && users_data[total_debt] <= 50000, "Moderate Debt",
+			    users_data[total_debt] > 50000 && users_data[total_debt] <= 100000, "High Debt",
+			    users_data[total_debt] > 100001, "Very High Debt",
+			    "Unknown"
+			)
+		lineageTag: 57652b8e-049a-4537-a7e8-0995e9bfaf61
+		summarizeBy: none
+		sortByColumn: total_debt_bucket_sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_debt_bucket_sort =
+			SWITCH(
+			    TRUE(),
+			    users_data[total_debt] = 0, "1" ,
+			    users_data[total_debt] > 0 && users_data[total_debt] <= 10000, "2",
+			    users_data[total_debt] > 10000 && users_data[total_debt] <= 50000, "3",
+			    users_data[total_debt] > 50000 && users_data[total_debt] <= 100000, "4",
+			    users_data[total_debt] > 100001, "5",
+			    "6"
+			)
+		lineageTag: 9f1e71b8-f7f3-4bd7-92f0-ebdbd13d1579
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition users_data = m
 		mode: import
 		source =

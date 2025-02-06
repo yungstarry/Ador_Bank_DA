@@ -4,10 +4,10 @@
   "position": {
     "x": 704.91172946345364,
     "y": 198.77406470509919,
-    "z": 3000,
+    "z": 2000,
     "height": 191.41206230861405,
     "width": 311.04460125149785,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -125,6 +125,17 @@
           },
           "selector": {
             "metadata": "_Measures.Avg Yearly_income"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           }
         }
       ],

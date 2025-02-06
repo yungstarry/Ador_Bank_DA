@@ -46,5 +46,22 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "70d18b19bde667d0748c",
+      "target": "bad423077bec79cc3dd7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "70d18b19bde667d0748c",
+      "target": "7b085cb17e7170ca93ec",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e16bed9cc4c09e955567",
+      "target": "7b085cb17e7170ca93ec",
+      "type": "NoFilter"
+    }
+  ]
 }
