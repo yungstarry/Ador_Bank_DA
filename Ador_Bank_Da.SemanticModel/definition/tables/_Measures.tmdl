@@ -67,6 +67,15 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
+	measure Label = "●●●"
+		lineageTag: 837b9cf8-6ab9-497d-88ab-eb5ec354191b
+
+	measure 'Total Debt' = SUM(users_data[total_debt])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d06613ff-bdfa-49fb-bba8-0076c338faef
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
 	partition _Measures = m
 		mode: import
 		source =

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "bad423077bec79cc3dd7",
+  "name": "9d4fb8c560e39ce5a175",
   "position": {
-    "x": 1483.4434828917588,
-    "y": 638.65370789508722,
-    "z": 10000,
-    "height": 377.30262281986421,
-    "width": 377.30262281986421,
-    "tabOrder": 10000
+    "x": 1039.8828385035283,
+    "y": 198.77406470509919,
+    "z": 7000,
+    "height": 408.59113300492612,
+    "width": 819.0227666089736,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -23,11 +23,11 @@
                       "Entity": "users_data"
                     }
                   },
-                  "Property": "Loan Risk Category"
+                  "Property": "age_bucket"
                 }
               },
-              "queryRef": "users_data.Loan Risk Category",
-              "nativeQueryRef": "Loan Risk Category",
+              "queryRef": "users_data.age_bucket",
+              "nativeQueryRef": "age_bucket",
               "active": true
             }
           ]
@@ -60,11 +60,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Clients"
+                  "Property": "Total Debt"
                 }
               },
-              "queryRef": "_Measures.Total Clients",
-              "nativeQueryRef": "Total Clients"
+              "queryRef": "_Measures.Total Debt",
+              "nativeQueryRef": "Total Debt"
             }
           ]
         }
@@ -303,14 +303,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clients by Risk Score Category'"
+                  "Value": "'Total Debt by Age Group'"
                 }
               }
             },
-            "alignment": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'left'"
+                  "Value": "16D"
                 }
               }
             },
@@ -322,6 +322,13 @@
                       "Value": "'#A4A4A4'"
                     }
                   }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

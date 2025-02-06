@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "bad423077bec79cc3dd7",
+  "name": "7e1c92dce0d28a0834e7",
   "position": {
     "x": 1483.4434828917588,
     "y": 638.65370789508722,
@@ -60,11 +60,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Clients"
+                  "Property": "Total Debt"
                 }
               },
-              "queryRef": "_Measures.Total Clients",
-              "nativeQueryRef": "Total Clients"
+              "queryRef": "_Measures.Total Debt",
+              "nativeQueryRef": "Total Debt"
             }
           ]
         }
@@ -303,7 +303,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clients by Risk Score Category'"
+                  "Value": "'Debt by Risk Score Category'"
                 }
               }
             },

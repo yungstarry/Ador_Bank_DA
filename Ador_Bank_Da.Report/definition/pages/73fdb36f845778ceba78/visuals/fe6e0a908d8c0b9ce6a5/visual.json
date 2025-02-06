@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "fe6e0a908d8c0b9ce6a5",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 128,
+    "width": 320,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Factors Involved in Determining  Overall Loan Risk Score",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\tCredit Score Yearly Income Total Credit Card Current "
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\t\tDebt and Active Work Years"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Classification",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "<50 Risk Score - High Risk 50-60 Risk Score -Moderate",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  },
+                  {
+                    "value": " risk"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ">60 Risk Score -Low Risk",
+                    "textStyle": {
+                      "fontSize": "8pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

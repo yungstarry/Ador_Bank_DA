@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "bad423077bec79cc3dd7",
+  "name": "e3343378e0872e94e920",
   "position": {
-    "x": 1483.4434828917588,
+    "x": 673.62321927839173,
     "y": 638.65370789508722,
-    "z": 10000,
+    "z": 12000,
     "height": 377.30262281986421,
-    "width": 377.30262281986421,
-    "tabOrder": 10000
+    "width": 340.49261083743846,
+    "tabOrder": 12000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "donutChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,30 +23,12 @@
                       "Entity": "users_data"
                     }
                   },
-                  "Property": "Loan Risk Category"
+                  "Property": "Credit score category"
                 }
               },
-              "queryRef": "users_data.Loan Risk Category",
-              "nativeQueryRef": "Loan Risk Category",
+              "queryRef": "users_data.Credit score category",
+              "nativeQueryRef": "Credit score category",
               "active": true
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "users_data"
-                    }
-                  },
-                  "Property": "gender"
-                }
-              },
-              "queryRef": "users_data.gender",
-              "nativeQueryRef": "gender"
             }
           ]
         },
@@ -60,24 +42,24 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Clients"
+                  "Property": "Total Debt"
                 }
               },
-              "queryRef": "_Measures.Total Clients",
-              "nativeQueryRef": "Total Clients"
+              "queryRef": "_Measures.Total Debt",
+              "nativeQueryRef": "Total Debt"
             }
           ]
         }
       }
     },
     "objects": {
-      "categoryAxis": [
+      "labels": [
         {
           "properties": {
-            "show": {
+            "labelStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Category, percent of total'"
                 }
               }
             },
@@ -88,102 +70,17 @@
                 }
               }
             },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#A4A4A4'"
-                    }
-                  }
-                }
-              }
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "13D"
                 }
               }
             }
           }
-        }
-      ],
-      "valueAxis": [
+        },
         {
           "properties": {
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "showTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#A4A4A4'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
             "color": {
               "solid": {
                 "color": {
@@ -192,6 +89,41 @@
                       "Value": "'#A4A4A4'"
                     }
                   }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "slices": [
+        {
+          "properties": {
+            "innerRadiusRatio": {
+              "expr": {
+                "Literal": {
+                  "Value": "55L"
                 }
               }
             }
@@ -226,12 +158,12 @@
                             "Entity": "users_data"
                           }
                         },
-                        "Property": "gender"
+                        "Property": "income_bucket"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Male'"
+                        "Value": "'Middle Income'"
                       }
                     }
                   }
@@ -246,8 +178,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#F25252'"
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": -0.25
                     }
                   }
                 }
@@ -267,12 +200,138 @@
                             "Entity": "users_data"
                           }
                         },
-                        "Property": "gender"
+                        "Property": "Credit score category"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Female'"
+                        "Value": "'Good'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "users_data"
+                          }
+                        },
+                        "Property": "Credit score category"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Excellent'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "users_data"
+                          }
+                        },
+                        "Property": "Credit score category"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Fair'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "users_data"
+                          }
+                        },
+                        "Property": "Credit score category"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Poor'"
                       }
                     }
                   }
@@ -300,20 +359,6 @@
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Clients by Risk Score Category'"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'left'"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -322,6 +367,20 @@
                       "Value": "'#A4A4A4'"
                     }
                   }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Debt by Credit Score'"
                 }
               }
             }
