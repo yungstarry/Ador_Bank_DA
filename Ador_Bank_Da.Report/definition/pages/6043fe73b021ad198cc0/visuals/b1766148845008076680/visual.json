@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "cf1fa9324db00b930004",
+  "name": "b1766148845008076680",
   "position": {
-    "x": 717.79523365730267,
-    "y": 186.83422203261662,
-    "z": 6000,
-    "height": 46.012514978032222,
-    "width": 242.94607908401014,
-    "tabOrder": 6000
+    "x": 390.18612701371325,
+    "y": 134.3565437358541,
+    "z": 13000,
+    "height": 55.215017973638666,
+    "width": 522.702170150446,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "shape",
@@ -38,6 +38,19 @@
           }
         }
       ],
+      "fill": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "text": [
         {
           "properties": {
@@ -52,13 +65,6 @@
         },
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Total Debt'"
-                }
-              }
-            },
             "fontFamily": {
               "expr": {
                 "Literal": {
@@ -69,7 +75,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "21D"
                 }
               }
             },
@@ -77,29 +83,24 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#A4A4A4'"
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Evaluating Financial Transactions'"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
-          }
-        }
-      ],
-      "fill": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
           }
         }
       ],

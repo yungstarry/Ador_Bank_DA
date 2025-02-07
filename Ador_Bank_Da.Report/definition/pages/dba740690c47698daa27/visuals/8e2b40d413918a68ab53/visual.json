@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "8e2b40d413918a68ab53",
   "position": {
-    "x": 369.94062042337907,
+    "x": 375.46212222074297,
     "y": 399.38863000931968,
     "z": 5000,
     "height": 46.012514978032222,
-    "width": 130.67554253761151,
+    "width": 222.70057249367596,
     "tabOrder": 5000
   },
   "visual": {
@@ -55,7 +55,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg Age'"
+                  "Value": "'Avg Loan Risk Score'"
                 }
               }
             },

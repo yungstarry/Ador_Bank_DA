@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "bf5b4f1b9514dadd9ac7",
+  "name": "61a67704d9d7a81a5c05",
   "position": {
-    "x": 353.3761150312875,
-    "y": 415.95313540141132,
-    "z": 1000,
+    "x": 704.91172946345364,
+    "y": 198.77406470509919,
+    "z": 2000,
     "height": 191.41206230861405,
     "width": 311.04460125149785,
-    "tabOrder": 1000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Avg Loan Risk Score"
+                  "Property": "Total $"
                 }
               },
-              "queryRef": "_Measures.Avg Loan Risk Score",
-              "nativeQueryRef": "Avg Loan Risk Score"
+              "queryRef": "_Measures.Total $",
+              "nativeQueryRef": "Total $"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Avg Loan Risk Score"
+                "Property": "Total $"
               }
             },
             "direction": "Descending"
@@ -72,6 +72,13 @@
                   }
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "36D"
+                }
+              }
             }
           },
           "selector": {
@@ -97,6 +104,31 @@
           },
           "selector": {
             "metadata": "_Measures.Total Clients"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total $"
           }
         }
       ],
@@ -235,7 +267,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Loan Risk Score"
+            "metadata": "_Measures.Total $"
           }
         },
         {
@@ -250,14 +282,14 @@
             "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Single Max Risk Score -'"
+                  "Value": "'Pass $ - '"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Loan Risk Score",
-            "id": "field-2edac80a-d7a8-0fdc-9071-b5a553c8cd49"
+            "metadata": "_Measures.Total $",
+            "id": "field-721e6c04-d330-6277-416f-e1a051b05d5c"
           }
         },
         {
@@ -272,14 +304,14 @@
             "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Single Min Risk Score - '"
+                  "Value": "'Failed $ - '"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Loan Risk Score",
-            "id": "field-45dd06e0-aee9-58e9-8bf7-3f0421e01d44"
+            "metadata": "_Measures.Total $",
+            "id": "field-66aa0d38-cfd6-5c9c-6594-756d0bfee3c5"
           }
         }
       ],
@@ -367,15 +399,41 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Loan Risk Score"
+            "metadata": "_Measures.Total $"
           }
         },
         {
           "properties": {
-            "valuePrecision": {
+            "valueDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueFontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FD0400'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total $",
+            "id": "field-66aa0d38-cfd6-5c9c-6594-756d0bfee3c5"
+          }
+        },
+        {
+          "properties": {
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             },
@@ -392,27 +450,8 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Loan Risk Score",
-            "id": "field-2edac80a-d7a8-0fdc-9071-b5a553c8cd49"
-          }
-        },
-        {
-          "properties": {
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FD0400'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Avg Loan Risk Score",
-            "id": "field-45dd06e0-aee9-58e9-8bf7-3f0421e01d44"
+            "metadata": "_Measures.Total $",
+            "id": "field-721e6c04-d330-6277-416f-e1a051b05d5c"
           }
         }
       ],
@@ -489,6 +528,27 @@
         },
         {
           "properties": {
+            "backgroundShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backgroundTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
             "value": {
               "expr": {
                 "Measure": {
@@ -497,7 +557,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Single Max Risk Score"
+                  "Property": "Pass $"
                 }
               }
             }
@@ -510,8 +570,8 @@
                 }
               }
             ],
-            "metadata": "_Measures.Avg Loan Risk Score",
-            "id": "field-2edac80a-d7a8-0fdc-9071-b5a553c8cd49",
+            "metadata": "_Measures.Total $",
+            "id": "field-721e6c04-d330-6277-416f-e1a051b05d5c",
             "order": 0
           }
         },
@@ -525,7 +585,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Single Min Risk Score"
+                  "Property": "Failed $"
                 }
               }
             }
@@ -538,23 +598,9 @@
                 }
               }
             ],
-            "metadata": "_Measures.Avg Loan Risk Score",
-            "id": "field-45dd06e0-aee9-58e9-8bf7-3f0421e01d44",
+            "metadata": "_Measures.Total $",
+            "id": "field-66aa0d38-cfd6-5c9c-6594-756d0bfee3c5",
             "order": 1
-          }
-        },
-        {
-          "properties": {
-            "backgroundShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Avg Loan Risk Score"
           }
         }
       ],
@@ -573,6 +619,38 @@
             "metadata": "_Measures.Total Clients"
           }
         },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "glowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shadowCustom": [
         {
           "properties": {
             "show": {

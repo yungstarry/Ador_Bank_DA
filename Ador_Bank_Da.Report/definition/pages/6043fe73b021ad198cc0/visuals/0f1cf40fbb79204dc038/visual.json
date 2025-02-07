@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "cf1fa9324db00b930004",
+  "name": "0f1cf40fbb79204dc038",
   "position": {
     "x": 717.79523365730267,
     "y": 186.83422203261662,
@@ -55,7 +55,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Debt'"
+                  "Value": "'Total Transaction'"
                 }
               }
             },

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "cf1fa9324db00b930004",
+  "name": "fc82a50fe6424c05d032",
   "position": {
-    "x": 717.79523365730267,
-    "y": 186.83422203261662,
-    "z": 6000,
-    "height": 46.012514978032222,
-    "width": 242.94607908401014,
-    "tabOrder": 6000
+    "x": 362.57861802689393,
+    "y": 47.853015577153514,
+    "z": 15000,
+    "height": 69.939022766608986,
+    "width": 622.0892025029957,
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "shape",
@@ -38,6 +38,19 @@
           }
         }
       ],
+      "fill": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "text": [
         {
           "properties": {
@@ -52,13 +65,6 @@
         },
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Total Debt'"
-                }
-              }
-            },
             "fontFamily": {
               "expr": {
                 "Literal": {
@@ -69,7 +75,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "45D"
                 }
               }
             },
@@ -83,23 +89,31 @@
                   }
                 }
               }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "fill": [
-        {
-          "properties": {
-            "show": {
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TRANSACTIONS'"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
             }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ],

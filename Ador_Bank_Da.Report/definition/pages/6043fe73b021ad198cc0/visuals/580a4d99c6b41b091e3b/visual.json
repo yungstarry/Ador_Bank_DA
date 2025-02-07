@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "cf1fa9324db00b930004",
+  "name": "580a4d99c6b41b091e3b",
   "position": {
-    "x": 717.79523365730267,
+    "x": 369.94062042337907,
     "y": 186.83422203261662,
-    "z": 6000,
+    "z": 4000,
     "height": 46.012514978032222,
-    "width": 242.94607908401014,
-    "tabOrder": 6000
+    "width": 130.67554253761151,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "shape",
@@ -55,7 +55,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Debt'"
+                  "Value": "'Clients'"
                 }
               }
             },

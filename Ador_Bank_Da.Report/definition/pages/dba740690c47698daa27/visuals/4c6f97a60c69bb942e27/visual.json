@@ -6,7 +6,7 @@
     "y": 399.38863000931968,
     "z": 8000,
     "height": 46.012514978032222,
-    "width": 242.94607908401014,
+    "width": 266.87258687258691,
     "tabOrder": 7000
   },
   "visual": {
@@ -55,7 +55,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Per Capital Income'"
+                  "Value": "'Debt To Income Ratio'"
                 }
               }
             },

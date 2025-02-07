@@ -72,9 +72,97 @@ table _Measures
 
 	measure 'Total Debt' = SUM(users_data[total_debt])
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: _Debt
 		lineageTag: d06613ff-bdfa-49fb-bba8-0076c338faef
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total DTI' = ```
+			
+			var  Yearly_income = sum(users_data[yearly_income])
+			return
+			  DIVIDE([Total Debt], Yearly_income, 0) * 100 
+			```
+		displayFolder: _DTI
+		lineageTag: 6bce9ee1-1aa1-418b-8a1d-5f7eba492bc1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Single Max Debt' = MAXX(users_data, users_data[total_debt])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: _Debt
+		lineageTag: df903cc8-fcff-45f4-a34f-418a39a62002
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Single Min Debt' =
+			MINX(
+			    FILTER(users_data,users_data[total_debt]>0), users_data[total_debt])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: _Debt
+		lineageTag: 82fcdb4b-500d-4685-a508-f4ba0f5285b1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Loan Risk Score' = AVERAGE(users_data[Risk Score])
+		displayFolder: _Risk Score
+		lineageTag: de1b8daa-182b-4f85-9bc8-8a4a3de2f864
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Single Max Risk Score' = MAXX(users_data, users_data[Risk Score])
+		displayFolder: _Risk Score
+		lineageTag: 9fded7f0-06fb-409b-8d16-b607de8732fb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Single Min Risk Score' = MINX(users_data, users_data[Risk Score])
+		displayFolder: _Risk Score
+		lineageTag: bbf3c322-c2e4-4f46-9d2e-954f1fe3c3c2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Single Max DTI' = MAXX(users_data,users_data[DTI])
+		displayFolder: _DTI
+		lineageTag: 7a17a0bc-aada-4026-bb48-7b227f39660d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Single Min DTI' = MINX(FILTER(users_data, users_data[DTI] >0),users_data[DTI])
+		displayFolder: _DTI
+		lineageTag: f2412652-105a-4373-9d04-366c72e6e8c6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total transaction' = DISTINCTCOUNT(fact_transactions_data[id])
+		formatString: 0
+		displayFolder: _Transaction
+		lineageTag: 2d4235c6-7e9e-4681-b804-6eb2166534e3
+
+	measure 'Total $' = SUM(fact_transactions_data[amount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: _Transaction
+		lineageTag: 8cd23e4e-dfbf-4bb9-8ef5-29a424045c77
+
+	measure 'Failed transaction' = CALCULATE([Total transaction], fact_transactions_data[status]="Failed")
+		formatString: 0
+		displayFolder: _Transaction
+		lineageTag: 0550bdac-874f-4efc-ac43-d47cb4ef6a50
+
+	measure 'Pass transaction' = CALCULATE([Total transaction], fact_transactions_data[status]="Pass")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: _Transaction
+		lineageTag: 21905c09-9e7c-462d-b482-0a2c32a39ad8
+
+	measure 'Pass $' = CALCULATE([Total $], fact_transactions_data[status]="Pass")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: _Transaction
+		lineageTag: 5140ff61-ad9e-493d-94ab-5003b5ed6b14
+
+	measure 'Failed $' = CALCULATE([Total $], fact_transactions_data[status]="Failed")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: _Transaction
+		lineageTag: a52720ec-f4d5-445e-aee0-972f73c52f74
 
 	partition _Measures = m
 		mode: import

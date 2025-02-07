@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Avg Per_cap_income"
+                  "Property": "Total DTI"
                 }
               },
-              "queryRef": "_Measures.Avg Per_cap_income",
-              "nativeQueryRef": "Avg Per_cap_income"
+              "queryRef": "_Measures.Total DTI",
+              "nativeQueryRef": "Total DTI"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Avg Per_cap_income"
+                "Property": "Total DTI"
               }
             },
             "direction": "Descending"
@@ -52,97 +52,6 @@
       }
     },
     "objects": {
-      "referenceLabel": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Max Per_cap_income"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Measures.Avg Per_cap_income",
-            "id": "field-772f1f95-660a-60e2-a8c6-6e3c15a1f7ed",
-            "order": 0
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Min Per_cap_income"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Measures.Avg Per_cap_income",
-            "id": "field-bfb2e388-1621-7340-55df-8dce4d9da391",
-            "order": 1
-          }
-        },
-        {
-          "properties": {
-            "backgroundTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "97D"
-                }
-              }
-            },
-            "backgroundColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.1
-                    }
-                  }
-                }
-              }
-            },
-            "backgroundShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Avg Per_cap_income"
-          }
-        }
-      ],
       "fillCustom": [
         {
           "properties": {
@@ -173,20 +82,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Avg Per_cap_income"
           }
         }
       ],
@@ -254,31 +149,82 @@
           }
         }
       ],
-      "referenceLabelValue": [
+      "referenceLabel": [
         {
           "properties": {
-            "show": {
+            "value": {
               "expr": {
-                "Literal": {
-                  "Value": "true"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Single Max DTI"
                 }
               }
-            },
-            "valueFontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
                 }
               }
-            },
-            "valueFontSize": {
+            ],
+            "metadata": "_Measures.Total DTI",
+            "id": "field-9876cc5a-0477-3b48-148d-31eed96afc48",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
               "expr": {
-                "Literal": {
-                  "Value": "16D"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Single Min DTI"
                 }
               }
-            },
-            "valueFontColor": {
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Measures.Total DTI",
+            "id": "field-b6df42b7-0403-5331-1b67-794de7fbaa62",
+            "order": 1
+          }
+        },
+        {
+          "properties": {
+            "backgroundShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total DTI"
+          }
+        }
+      ],
+      "referenceLabelTitle": [
+        {
+          "properties": {
+            "titleFontColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -291,31 +237,22 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Per_cap_income"
+            "metadata": "_Measures.Total DTI"
           }
-        }
-      ],
-      "referenceLabelTitle": [
+        },
         {
           "properties": {
-            "show": {
+            "titleContentType": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'custom'"
                 }
               }
             },
-            "titleFontFamily": {
+            "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
+                  "Value": "'Single Max DTI - '"
                 }
               }
             },
@@ -332,7 +269,8 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Per_cap_income"
+            "metadata": "_Measures.Total DTI",
+            "id": "field-9876cc5a-0477-3b48-148d-31eed96afc48"
           }
         },
         {
@@ -347,43 +285,21 @@
             "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Max -'"
+                  "Value": "'Single Min DTI - '"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Per_cap_income",
-            "id": "field-772f1f95-660a-60e2-a8c6-6e3c15a1f7ed"
-          }
-        },
-        {
-          "properties": {
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            },
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Min -'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Avg Per_cap_income",
-            "id": "field-bfb2e388-1621-7340-55df-8dce4d9da391"
+            "metadata": "_Measures.Total DTI",
+            "id": "field-b6df42b7-0403-5331-1b67-794de7fbaa62"
           }
         }
       ],
-      "divider": [
+      "referenceLabelValue": [
         {
           "properties": {
-            "dividerColor": {
+            "valueFontColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -393,17 +309,29 @@
                   }
                 }
               }
-            },
-            "dividerTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "50D"
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total DTI"
+          }
+        },
+        {
+          "properties": {
+            "valueFontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FD0400'"
+                    }
+                  }
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Measures.Avg Per_cap_income"
+            "metadata": "_Measures.Total DTI",
+            "id": "field-9876cc5a-0477-3b48-148d-31eed96afc48"
           }
         }
       ]

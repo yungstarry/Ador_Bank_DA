@@ -119,6 +119,12 @@ table fact_transactions_data
 
 		annotation UnderlyingDateTimeDataType = Time
 
+	column status = if(ISBLANK(fact_transactions_data[errors]), "Pass", "Failed")
+		lineageTag: b43776eb-41c9-449b-8177-2428915106fb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fact_transactions_data = m
 		mode: import
 		source =
