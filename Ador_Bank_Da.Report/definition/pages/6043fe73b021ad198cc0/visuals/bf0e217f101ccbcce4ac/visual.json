@@ -10,7 +10,7 @@
     "tabOrder": 8000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "lineClusteredColumnComboChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,35 +20,20 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "users_data"
+                      "Entity": "mcc_codes"
                     }
                   },
-                  "Property": "age_bucket"
+                  "Property": "Category"
                 }
               },
-              "queryRef": "users_data.age_bucket",
-              "nativeQueryRef": "age_bucket",
+              "queryRef": "mcc_codes.Category",
+              "nativeQueryRef": "Category",
               "active": true
             }
           ]
         },
         "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "users_data"
-                    }
-                  },
-                  "Property": "gender"
-                }
-              },
-              "queryRef": "users_data.gender",
-              "nativeQueryRef": "gender"
-            }
-          ]
+          "projections": []
         },
         "Y": {
           "projections": [
@@ -60,14 +45,50 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Debt"
+                  "Property": "Total $"
                 }
               },
-              "queryRef": "_Measures.Total Debt",
-              "nativeQueryRef": "Total Debt"
+              "queryRef": "_Measures.Total $",
+              "nativeQueryRef": "Total $"
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total transaction"
+                }
+              },
+              "queryRef": "_Measures.Total transaction",
+              "nativeQueryRef": "Total transaction"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total $"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -139,6 +160,24 @@
                   "Value": "false"
                 }
               }
+            },
+            "secShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "secLabelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#A4A4A4'"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -195,6 +234,74 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableBackground": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total $"
+          }
+        },
+        {
+          "properties": {
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableBackground": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total transaction"
           }
         }
       ],
@@ -279,6 +386,59 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F25252'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#A4A4A4'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total transaction"
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "lineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            }
           }
         }
       ]

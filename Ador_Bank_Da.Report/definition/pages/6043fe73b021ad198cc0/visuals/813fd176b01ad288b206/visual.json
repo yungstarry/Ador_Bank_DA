@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "users_data"
+                      "Entity": "Calendar"
                     }
                   },
-                  "Property": "income_bucket"
+                  "Property": "Year"
                 }
               },
-              "queryRef": "users_data.income_bucket",
-              "nativeQueryRef": "income_bucket",
+              "queryRef": "Calendar.Year",
+              "nativeQueryRef": "Year",
               "active": true
             }
           ]
@@ -149,7 +149,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Select Income Task'"
+                  "Value": "'Select Year'"
                 }
               }
             },

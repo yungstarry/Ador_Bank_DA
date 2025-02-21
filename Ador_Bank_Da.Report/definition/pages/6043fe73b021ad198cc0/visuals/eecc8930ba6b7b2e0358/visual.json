@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Clients"
+                  "Property": "Total transaction"
                 }
               },
-              "queryRef": "_Measures.Total Clients",
-              "nativeQueryRef": "Total Clients"
+              "queryRef": "_Measures.Total transaction",
+              "nativeQueryRef": "Total transaction"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total Clients"
+                "Property": "Total transaction"
               }
             },
             "direction": "Descending"
@@ -72,6 +72,13 @@
                   }
                 }
               }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
             }
           },
           "selector": {
@@ -80,13 +87,17 @@
         },
         {
           "properties": {
-            "fontSize": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "46D"
+                  "Value": "true"
                 }
               }
-            },
+            }
+          }
+        },
+        {
+          "properties": {
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
@@ -96,88 +107,11 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Total Clients"
+            "metadata": "_Measures.Total transaction"
           }
         }
       ],
       "referenceLabel": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Male Clients"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Measures.Total Clients",
-            "id": "field-81291781-5eca-1953-055a-094368b639b3",
-            "order": 0
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Female Clients"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Measures.Total Clients",
-            "id": "field-11e920e6-94d5-7906-ab6f-282fe7c1028c",
-            "order": 1
-          }
-        },
-        {
-          "properties": {
-            "backgroundShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "backgroundTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "97D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Clients"
-          }
-        },
         {
           "properties": {
             "backgroundShow": {
@@ -190,6 +124,76 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Failed transaction"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Measures.Total transaction",
+            "id": "field-14622e50-7eba-4b4d-2599-05d12d1ed76f",
+            "order": 1
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pass transaction"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Measures.Total transaction",
+            "id": "field-5063d6f1-36d6-e682-4bd6-377baf249aef",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "backgroundShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total transaction"
           }
         }
       ],
@@ -225,31 +229,6 @@
       "referenceLabelTitle": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "titleFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#A4A4A4'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Clients"
-          }
-        },
-        {
-          "properties": {
             "titleFontFamily": {
               "expr": {
                 "Literal": {
@@ -271,53 +250,14 @@
         },
         {
           "properties": {
-            "titleContentType": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'custom'"
+                  "Value": "true"
                 }
               }
             },
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Male'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Clients",
-            "id": "field-81291781-5eca-1953-055a-094368b639b3"
-          }
-        },
-        {
-          "properties": {
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            },
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Female '"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Total Clients",
-            "id": "field-11e920e6-94d5-7906-ab6f-282fe7c1028c"
-          }
-        }
-      ],
-      "referenceLabelValue": [
-        {
-          "properties": {
-            "valueFontColor": {
+            "titleFontColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -327,26 +267,14 @@
                   }
                 }
               }
-            },
-            "valueFontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "valueFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "17D"
-                }
-              }
             }
           },
           "selector": {
-            "metadata": "_Measures.Total Clients"
+            "metadata": "_Measures.Total transaction"
           }
-        },
+        }
+      ],
+      "referenceLabelValue": [
         {
           "properties": {
             "valueFontFamily": {
@@ -370,6 +298,43 @@
         },
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "valueFontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total transaction"
+          }
+        },
+        {
+          "properties": {
+            "valueFontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00FF0D'"
+                    }
+                  }
+                }
+              }
+            },
             "valueDisplayUnits": {
               "expr": {
                 "Literal": {
@@ -379,24 +344,34 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Total Clients",
-            "id": "field-11e920e6-94d5-7906-ab6f-282fe7c1028c"
+            "metadata": "_Measures.Total transaction",
+            "id": "field-5063d6f1-36d6-e682-4bd6-377baf249aef"
           }
-        }
-      ],
-      "label": [
+        },
         {
           "properties": {
-            "show": {
+            "valueFontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EC150A'"
+                    }
+                  }
+                }
+              }
+            },
+            "valueDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "1D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Measures.Total Clients"
+            "metadata": "_Measures.Total transaction",
+            "id": "field-14622e50-7eba-4b4d-2599-05d12d1ed76f"
           }
         }
       ],
@@ -430,30 +405,21 @@
           "selector": {
             "id": "default"
           }
-        },
+        }
+      ],
+      "label": [
         {
           "properties": {
-            "dividerColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#A4A4A4'"
-                    }
-                  }
-                }
-              }
-            },
-            "dividerTransparency": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "50D"
+                  "Value": "false"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Measures.Total Clients"
+            "id": "default"
           }
         }
       ]

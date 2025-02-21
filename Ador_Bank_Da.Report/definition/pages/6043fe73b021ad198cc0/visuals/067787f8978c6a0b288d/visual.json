@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "users_data"
+                      "Entity": "fact_transactions_data"
                     }
                   },
-                  "Property": "income_bucket"
+                  "Property": "use_chip"
                 }
               },
-              "queryRef": "users_data.income_bucket",
-              "nativeQueryRef": "income_bucket",
+              "queryRef": "fact_transactions_data.use_chip",
+              "nativeQueryRef": "use_chip",
               "active": true
             }
           ]
@@ -42,14 +42,32 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Debt"
+                  "Property": "Total transaction"
                 }
               },
-              "queryRef": "_Measures.Total Debt",
-              "nativeQueryRef": "Total Debt"
+              "queryRef": "_Measures.Total transaction",
+              "nativeQueryRef": "Total transaction"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total transaction"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -263,6 +281,131 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "fact_transactions_data"
+                          }
+                        },
+                        "Property": "use_chip"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Chip Transaction'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "fact_transactions_data"
+                          }
+                        },
+                        "Property": "use_chip"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Swipe Transaction'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EC150A'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "fact_transactions_data"
+                          }
+                        },
+                        "Property": "use_chip"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Online Transaction'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -297,7 +440,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Debt by Income Bracket'"
+                  "Value": "'Total Transactions by  Use Chip'"
                 }
               }
             },

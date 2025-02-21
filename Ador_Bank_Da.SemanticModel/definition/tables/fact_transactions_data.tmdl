@@ -125,6 +125,43 @@ table fact_transactions_data
 
 		annotation SummarizationSetBy = Automatic
 
+	column TimeCategory = ```
+			
+			SWITCH(
+			    TRUE(),
+			    HOUR(fact_transactions_data[time]) >= 0 && HOUR(fact_transactions_data[time]) < 6, "12 AM - 5:59 AM",
+			    HOUR(fact_transactions_data[time]) >= 6 && HOUR(fact_transactions_data[time]) < 12, "6 AM - 11:59 AM",
+			    HOUR(fact_transactions_data[time]) >= 12 && HOUR(fact_transactions_data[time]) < 18, "12 PM - 5:59 PM",
+			    HOUR(fact_transactions_data[time]) >= 18 && HOUR(fact_transactions_data[time]) < 21, "6 PM - 8:59 PM",
+			    HOUR(fact_transactions_data[time]) >= 21 && HOUR(fact_transactions_data[time]) < 24, "9 PM - 11:59 PM"
+			    
+			)
+			```
+		lineageTag: 38a9d4d3-04d0-45f9-bdc9-27b4067730c3
+		summarizeBy: none
+		sortByColumn: TimeCategorySort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeCategorySort = ```
+			
+			SWITCH(
+			    TRUE(),
+			    HOUR(fact_transactions_data[time]) >= 0 && HOUR(fact_transactions_data[time]) < 6, "1",
+			    HOUR(fact_transactions_data[time]) >= 6 && HOUR(fact_transactions_data[time]) < 12, "2",
+			    HOUR(fact_transactions_data[time]) >= 12 && HOUR(fact_transactions_data[time]) < 18, "3",
+			    HOUR(fact_transactions_data[time]) >= 18 && HOUR(fact_transactions_data[time]) < 21, "4",
+			    HOUR(fact_transactions_data[time]) >= 21 && HOUR(fact_transactions_data[time]) < 24, "5"
+			    
+			)
+			```
+		lineageTag: 081afe51-5ca2-4176-bd7d-a7a41d724330
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fact_transactions_data = m
 		mode: import
 		source =

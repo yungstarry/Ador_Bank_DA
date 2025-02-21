@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "e638e4667c15e4c09137",
+  "name": "10883f6c33fd745cd4fc",
   "position": {
-    "x": 1039.8828385035283,
-    "y": 638.65370789508722,
-    "z": 9000,
-    "height": 377.30262281986421,
-    "width": 443.56064438823063,
-    "tabOrder": 9000
+    "x": 622,
+    "y": 200,
+    "z": 19001,
+    "height": 378,
+    "width": 676,
+    "tabOrder": 19001
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,33 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "users_data"
+                      "Entity": "Calendar"
                     }
                   },
-                  "Property": "DTI Category"
+                  "Property": "MonthNameShort"
                 }
               },
-              "queryRef": "users_data.DTI Category",
-              "nativeQueryRef": "DTI Category",
+              "queryRef": "Calendar.MonthNameShort",
+              "nativeQueryRef": "MonthNameShort",
               "active": true
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "users_data"
-                    }
-                  },
-                  "Property": "gender"
-                }
-              },
-              "queryRef": "users_data.gender",
-              "nativeQueryRef": "gender"
             }
           ]
         },
@@ -60,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Debt"
+                  "Property": "Total $"
                 }
               },
-              "queryRef": "_Measures.Total Debt",
-              "nativeQueryRef": "Total Debt"
+              "queryRef": "_Measures.Total $",
+              "nativeQueryRef": "Total $"
             }
           ]
         }
@@ -280,6 +262,52 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F25252'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F25252'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total $"
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -303,7 +331,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Debt  by DTI Category'"
+                  "Value": "'Total Transactions by Month'"
                 }
               }
             },

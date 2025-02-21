@@ -135,7 +135,7 @@ table _Measures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total transaction' = DISTINCTCOUNT(fact_transactions_data[id])
-		formatString: 0
+		formatString: #,0
 		displayFolder: _Transaction
 		lineageTag: 2d4235c6-7e9e-4681-b804-6eb2166534e3
 
@@ -145,12 +145,12 @@ table _Measures
 		lineageTag: 8cd23e4e-dfbf-4bb9-8ef5-29a424045c77
 
 	measure 'Failed transaction' = CALCULATE([Total transaction], fact_transactions_data[status]="Failed")
-		formatString: 0
+		formatString: #,0
 		displayFolder: _Transaction
 		lineageTag: 0550bdac-874f-4efc-ac43-d47cb4ef6a50
 
 	measure 'Pass transaction' = CALCULATE([Total transaction], fact_transactions_data[status]="Pass")
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: #,0
 		displayFolder: _Transaction
 		lineageTag: 21905c09-9e7c-462d-b482-0a2c32a39ad8
 
@@ -163,6 +163,21 @@ table _Measures
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		displayFolder: _Transaction
 		lineageTag: a52720ec-f4d5-445e-aee0-972f73c52f74
+
+	measure _gradient =
+			
+			SWITCH(
+			    TRUE(),
+			    [Total transaction] < 900, "#E0F3FF",   -- Very light blue
+			    [Total transaction] < 1000, "#C4E8FF",  -- Lighter blue
+			    [Total transaction] < 1500, "#A8DEFF",  -- Soft blue
+			    [Total transaction] < 2000, "#8DD2FF",  -- Gentle light blue
+			    [Total transaction] < 3000, "#6FC2FF",  -- Light-medium blue
+			    [Total transaction] < 4000, "#A0D1FF",  -- Medium-light blue
+			    [Total transaction] < 5000, "#70BBFF",  -- Default mid-light blue
+			    "#41A4FF" -- Fallback value
+			)
+		lineageTag: 207daf61-f5f2-4707-91c4-427b6f06fc9d
 
 	partition _Measures = m
 		mode: import
