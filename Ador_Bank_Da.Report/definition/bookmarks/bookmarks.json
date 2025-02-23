@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "ba9ac3c400de5ee0f232",
+      "displayName": "Trend",
+      "children": [
+        "09a5b19b052cab0343a4",
+        "c09728f30cdf81cb5ecc"
+      ]
+    }
+  ]
+}

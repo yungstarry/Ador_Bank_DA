@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "350e00981fb0441cd567",
   "position": {
-    "x": 340,
-    "y": 634,
-    "z": 19002,
-    "height": 386,
-    "width": 676,
-    "tabOrder": 19002
+    "x": 340.49261083743846,
+    "y": 664.42071628278529,
+    "z": 16000,
+    "height": 346.0141126348023,
+    "width": 675.46371987751309,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -586,6 +586,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Time trend'"
                 }
               }
             }

@@ -3710,7 +3710,9 @@ cultureInfo en-US
 			            "Weight": 0.99
 			          }
 			        },
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "merchant location": {
 			            "Type": "Noun",

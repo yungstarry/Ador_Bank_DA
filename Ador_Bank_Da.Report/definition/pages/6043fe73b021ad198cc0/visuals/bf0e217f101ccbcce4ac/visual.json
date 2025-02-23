@@ -4,10 +4,10 @@
   "position": {
     "x": 1039.8828385035283,
     "y": 198.77406470509919,
-    "z": 7000,
+    "z": 4000,
     "height": 408.59113300492612,
     "width": 819.0227666089736,
-    "tabOrder": 8000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -31,9 +31,6 @@
               "active": true
             }
           ]
-        },
-        "Series": {
-          "projections": []
         },
         "Y": {
           "projections": [
