@@ -1,0 +1,48 @@
+table Transactions
+	lineageTag: 2533e458-4392-41a3-befb-ce5d645fbd8a
+
+	column Transactions
+		lineageTag: b9c99649-d0b6-484f-ab23-ac144d1e5ba7
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Transactions Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Transactions Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transactions Fields'
+		isHidden
+		lineageTag: eddbb547-335e-4005-9cc0-d7191f271588
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Transactions Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transactions Order'
+		isHidden
+		formatString: 0
+		lineageTag: 9db5ba79-50e7-4b1c-8ca4-5e325741dab4
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Transactions = calculated
+		mode: import
+		source =
+				{
+				    ("Transactions $", NAMEOF('_Measures'[Total $]), 0),
+				    ("Transaction #", NAMEOF('_Measures'[Total transaction]), 1)
+				}
+
+	annotation PBI_Id = 2b84f1ac2e6a4378960f3aab2c6c7e34
+

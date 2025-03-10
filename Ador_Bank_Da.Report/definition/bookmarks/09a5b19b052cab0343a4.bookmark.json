@@ -305,26 +305,6 @@
               "objects": {}
             }
           },
-          "da836f933eacbb7a2074": {
-            "singleVisual": {
-              "visualType": "clusteredColumnChart",
-              "objects": {},
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "users_data"
-                        }
-                      },
-                      "Property": "Loan Risk Category"
-                    }
-                  }
-                ]
-              }
-            }
-          },
           "db6e4b6b30d236615a0e": {
             "singleVisual": {
               "visualType": "shape",

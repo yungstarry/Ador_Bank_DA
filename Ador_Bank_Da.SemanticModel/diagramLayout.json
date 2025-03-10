@@ -84,6 +84,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1118,
+            "y": 213
+          },
+          "nodeIndex": "Transactions",
+          "nodeLineageTag": "2533e458-4392-41a3-befb-ce5d645fbd8a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

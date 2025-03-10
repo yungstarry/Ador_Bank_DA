@@ -50,11 +50,6 @@
   "visualInteractions": [
     {
       "source": "cf0fe7a50208153d2e30",
-      "target": "da836f933eacbb7a2074",
-      "type": "NoFilter"
-    },
-    {
-      "source": "cf0fe7a50208153d2e30",
       "target": "067787f8978c6a0b288d",
       "type": "NoFilter"
     },

@@ -162,6 +162,96 @@ table fact_transactions_data
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Merchant State' = IF(ISBLANK(fact_transactions_data[merchant_state]), "Unknown",fact_transactions_data[merchant_state])
+		lineageTag: 578448c0-435e-41d3-8ef9-49dabcbf7c1d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Merchant City' = IF(fact_transactions_data[merchant_city] = "ONLINE", "Unknown",fact_transactions_data[merchant_city])
+		lineageTag: aaa1783d-e219-48b0-9c9b-9a29a1773209
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Merchant State 2' =
+			
+			SWITCH(
+			    TRUE(),
+			    fact_transactions_data[Merchant State] = "AK", "Alaska",
+			    fact_transactions_data[Merchant State] = "AL", "Alabama",
+			    fact_transactions_data[Merchant State] = "AR", "Arkansas",
+			    fact_transactions_data[Merchant State] = "AZ", "Arizona",
+			    fact_transactions_data[Merchant State] = "CA", "California",
+			    fact_transactions_data[Merchant State] = "CO", "Colorado",
+			    fact_transactions_data[Merchant State] = "CT", "Connecticut",
+			    fact_transactions_data[Merchant State] = "DE", "Delaware",
+			    fact_transactions_data[Merchant State] = "DC", "District of Columbia",
+			    fact_transactions_data[Merchant State] = "FL", "Florida",
+			    fact_transactions_data[Merchant State] = "GA", "Georgia",
+			    fact_transactions_data[Merchant State] = "HI", "Hawaii",
+			    fact_transactions_data[Merchant State] = "IA", "Iowa",
+			    fact_transactions_data[Merchant State] = "ID", "Idaho",
+			    fact_transactions_data[Merchant State] = "IL", "Illinois",
+			    fact_transactions_data[Merchant State] = "IN", "Indiana",
+			    fact_transactions_data[Merchant State] = "KS", "Kansas",
+			    fact_transactions_data[Merchant State] = "KY", "Kentucky",
+			    fact_transactions_data[Merchant State] = "LA", "Louisiana",
+			    fact_transactions_data[Merchant State] = "MA", "Massachusetts",
+			    fact_transactions_data[Merchant State] = "MD", "Maryland",
+			    fact_transactions_data[Merchant State] = "ME", "Maine",
+			    fact_transactions_data[Merchant State] = "MI", "Michigan",
+			    fact_transactions_data[Merchant State] = "MN", "Minnesota",
+			    fact_transactions_data[Merchant State] = "MO", "Missouri",
+			    fact_transactions_data[Merchant State] = "MS", "Mississippi",
+			    fact_transactions_data[Merchant State] = "MT", "Montana",
+			    fact_transactions_data[Merchant State] = "NC", "North Carolina",
+			    fact_transactions_data[Merchant State] = "ND", "North Dakota",
+			    fact_transactions_data[Merchant State] = "NE", "Nebraska",
+			    fact_transactions_data[Merchant State] = "NH", "New Hampshire",
+			    fact_transactions_data[Merchant State] = "NJ", "New Jersey",
+			    fact_transactions_data[Merchant State] = "NM", "New Mexico",
+			    fact_transactions_data[Merchant State] = "NV", "Nevada",
+			    fact_transactions_data[Merchant State] = "NY", "New York",
+			    fact_transactions_data[Merchant State] = "OH", "Ohio",
+			    fact_transactions_data[Merchant State] = "OK", "Oklahoma",
+			    fact_transactions_data[Merchant State] = "OR", "Oregon",
+			    fact_transactions_data[Merchant State] = "PA", "Pennsylvania",
+			    fact_transactions_data[Merchant State] = "RI", "Rhode Island",
+			    fact_transactions_data[Merchant State] = "SC", "South Carolina",
+			    fact_transactions_data[Merchant State] = "SD", "South Dakota",
+			    fact_transactions_data[Merchant State] = "TN", "Tennessee",
+			    fact_transactions_data[Merchant State] = "TX", "Texas",
+			    fact_transactions_data[Merchant State] = "UT", "Utah",
+			    fact_transactions_data[Merchant State] = "VT", "Vermont",
+			    fact_transactions_data[Merchant State] = "VA", "Virginia",
+			    fact_transactions_data[Merchant State] = "WA", "Washington",
+			    fact_transactions_data[Merchant State] = "WI", "Wisconsin",
+			    fact_transactions_data[Merchant State] = "WV", "West Virginia",
+			    fact_transactions_data[Merchant State] = "WY", "Wyoming",
+			    fact_transactions_data[Merchant State] = "Australia", "Australia",
+			    fact_transactions_data[Merchant State] = "Canada", "Canada",
+			    fact_transactions_data[Merchant State] = "China", "China",
+			    fact_transactions_data[Merchant State] = "France", "France",
+			    fact_transactions_data[Merchant State] = "Germany", "Germany",
+			    fact_transactions_data[Merchant State] = "India", "India",
+			    fact_transactions_data[Merchant State] = "Japan", "Japan",
+			    fact_transactions_data[Merchant State] = "Mexico", "Mexico",
+			    fact_transactions_data[Merchant State] = "Nigeria", "Nigeria",
+			    fact_transactions_data[Merchant State] = "Russia", "Russia",
+			    fact_transactions_data[Merchant State] = "Singapore", "Singapore",
+			    fact_transactions_data[Merchant State] = "Spain", "Spain",
+			    fact_transactions_data[Merchant State] = "United Kingdom", "United Kingdom",
+			    fact_transactions_data[Merchant State] = "Oman", "Oman",
+			    fact_transactions_data[Merchant State] = "Lebanon", "Lebanon",
+			    ISBLANK(fact_transactions_data[Merchant State]), "Unknown",
+			    "Unknown" -- Default for unmatched values
+			)
+		lineageTag: b42a8b37-d6eb-41b5-8486-01b4104b8df2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fact_transactions_data = m
 		mode: import
 		source =
