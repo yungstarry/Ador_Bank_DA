@@ -3,6 +3,8 @@
 ## 1. Title
 **Analyzing AdorDev Bank’s Client Demographics and Financial Health**
 
+[View Dashboard on Power Bi Service](https://app.powerbi.com/view?r=eyJrIjoiODBmN2U3NDktZWZjZC00ZTRiLTg0MWEtYTk4MGMxOWNiZDc4IiwidCI6IjhmNzg3ODg0LTA2MTctNDEzMi05MzFhLTQyYjljM2ViNjM3YiJ9)
+
 ![Dashboard](images/dash1.png)  
 
 ---
@@ -96,7 +98,7 @@ The data model in Power BI consists of two main tables:
 *Alt Text*: Power BI dashboard displaying client count (2,000), average age (45), income brackets (70.25% low income), and clients by DTI category (High DTI at 38.29%).
 
 ![Transactional Dashboard](images/dash3.png) 
- 
+
 
 ---
 
