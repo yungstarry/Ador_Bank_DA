@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "db6e4b6b30d236615a0e",
+  "name": "5c904a4e0d0e7a68bb00",
   "position": {
-    "x": 1039.8828385035283,
-    "y": 134.3565437358541,
-    "z": 8000,
-    "height": 55.215017973638666,
-    "width": 798.77726001863937,
-    "tabOrder": 8000
+    "x": 44.172014378910937,
+    "y": 64.417520969245118,
+    "z": 20003,
+    "height": 149.08054852882441,
+    "width": 242.94607908401014,
+    "tabOrder": 20002
   },
   "visual": {
     "visualType": "shape",
@@ -51,6 +51,19 @@
           }
         }
       ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "text": [
         {
           "properties": {
@@ -65,55 +78,30 @@
         },
         {
           "properties": {
-            "fontFamily": {
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                  "Value": "'ADORDEV BANK'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "34D"
                 }
               }
             },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "text": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Transactions Yearly and Time Trend, Transactions Across States and Cities'"
+                  "Value": "'Tahoma'"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
-          }
-        }
-      ],
-      "outline": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
           }
         }
       ]

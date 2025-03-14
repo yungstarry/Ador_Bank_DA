@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "b1766148845008076680",
+  "name": "e84f07ac1ac3c065182d",
   "position": {
-    "x": 390.18612701371325,
-    "y": 134.3565437358541,
-    "z": 7000,
-    "height": 55.215017973638666,
-    "width": 522.702170150446,
-    "tabOrder": 7000
+    "x": 44.172014378910937,
+    "y": 611.04619890826791,
+    "z": 20000,
+    "height": 404.91013180668358,
+    "width": 242.94607908401014,
+    "tabOrder": 20000
   },
   "visual": {
     "visualType": "shape",
@@ -41,60 +41,14 @@
       "fill": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "text": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "21D"
-                }
-              }
-            },
-            "fontColor": {
+            "fillColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#262626'"
                     }
                   }
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Evaluating Financial Transactions'"
                 }
               }
             }
